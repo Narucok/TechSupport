@@ -1,23 +1,30 @@
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class Input_reader
+
+public class InputReader
 {
-    // instance variables - replace the example below with your own
     private Scanner reader;
 
-    public Input_reader()
+
+    public InputReader()
     {
-        // initialise instance variables
         reader = new Scanner(System.in);
     }
-  
-    public String getInput()
+
+ 
+    public HashSet<String> getInput() 
     {
-        // put your code here
-        System.out.print(">");   //Print prompt
-        String inputLine = reader.nextLine();
-        
-        return inputLine;
+        System.out.print("> ");                
+        String inputLine = reader.nextLine().trim().toLowerCase();
+
+        String[] wordArray = inputLine.split(" ");  
+
+         
+        HashSet<String> words = new HashSet<String>();
+        for(String word : wordArray) {
+            words.add(word);
+        }
+        return words;
     }
 }
